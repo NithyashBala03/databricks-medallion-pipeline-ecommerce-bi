@@ -57,6 +57,8 @@ _Business characteristics captured_
 
 Multi-currency transactions (example: USD, GBP, AUD, INR)
 
+<img width="1177" height="658" alt="image" src="https://github.com/user-attachments/assets/26538297-f724-4b4d-8acb-f3e731509836" />
+
 Discounts and coupons
 
 Taxes
@@ -106,6 +108,26 @@ Dimensions: Bronze → Silver → Gold
 Facts: Bronze → Silver → Gold
 
 Trigger: schedule (ex: nightly) or file arrival
+
+Taking Gold data (business-ready tables or a denormalized Gold view) and connecting it to a Databricks Dashboard to build visuals like:
+
+Monthly sales trend (Aug, Sep, Oct)
+
+Net sales by category (electronics, home & kitchen, etc.)
+
+Heatmap: sales by day-of-week vs hour-of-day
+
+Filters like category, channel (website vs mobile app), coupon usage, country/region, etc.
+
+__What the dashboard uses as its dataset__
+
+Usually a single Gold view that joins:
+
+fact_order_items + dim_date (for month, quarter, is_weekend)
+
+fact_order_items + dim_products (for brand/category names)
+
+optionally dim_customers (for region/country slicing)
 
 <img width="1038" height="261" alt="image" src="https://github.com/user-attachments/assets/d37c0f75-096b-4406-8ac5-4ab1fbd27ec4" />
 
